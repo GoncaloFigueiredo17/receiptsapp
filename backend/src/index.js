@@ -14,19 +14,19 @@ app.get("/", (req, res) => {
 });
 
 //receber os ingredientes do utilizador e ir buscar receitas com base nos ingredientes
-app.post("/recipes",async(req,res) => {
-    const { ingredientes } = req.body; // guardar os ingredientes numa variável
+app.post("/recipes", async (req, res) => {
+  const { ingredientes } = req.body; // guardar os ingredientes numa variável
 
-    const query = encodeURIComponent(ingredientes.split(",")[0].trim());
-    try{
-      const receitas = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?i=${query}`
-      );
-      const data = await receitas.json();
-      res.json(data);
-      }catch (err) {
-        res.status(500).json({error : "Erro em obter receitas"});
-      }    
+  const query = encodeURIComponent(ingredientes.split(",")[0].trim());
+  try {
+    const receitas = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${query}`
+    );
+    const data = await receitas.json();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: "Erro em obter receitas" });
+  }
 });
 
 const PORT = process.env.PORT || 5000;

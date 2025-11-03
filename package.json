@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "node-fetch": "^3.3.2"
+    "bootstrap": "^5.3.8",
+    "node-fetch": "^3.3.2",
+    "react-bootstrap": "^2.10.10"
+  },
+  "devDependencies": {
+    "@types/react-bootstrap": "^1.0.1"
   }
 }
